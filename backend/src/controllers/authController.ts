@@ -20,13 +20,13 @@ export class AuthController {
       return ApiResponse.success(res, {
         user: {
           id: '00000000-0000-0000-0000-000000000001',
-          email: 'advshiv43@gmail.com',
+          email: 'justicealliencelaw@gmail.com',
           role: 'authenticated',
         },
         adminProfile: {
           id: 'ad000000-0000-0000-0000-000000000001',
           user_id: '00000000-0000-0000-0000-000000000001',
-          display_name: 'Advocate Shivansh Kumar Pandey',
+          display_name: 'JUSTICE ALLIANCE Associates & Law Firm',
           role: 'super_admin',
         },
       }, 'Session verified successfully (Test suite)');

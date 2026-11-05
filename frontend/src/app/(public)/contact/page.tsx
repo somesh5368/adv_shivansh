@@ -16,7 +16,7 @@ export default function ContactPage() {
       {/* Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="border-b border-bone-dark pb-10 space-y-4 max-w-3xl">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 bg-oxblood/10 border border-brass/40 text-oxblood text-xs font-mono uppercase tracking-editorial rounded-xs">
+          <div className="inline-flex items-center space-x-2 px-3 py-1 bg-oxblood/10 border border-brass/40 text-oxblood text-xs font-semibold uppercase tracking-wider rounded-xs">
             <Scale size={12} className="text-brass" />
             <span>Chambers Directory</span>
           </div>
@@ -39,7 +39,7 @@ export default function ContactPage() {
             {/* Main Chambers Box */}
             <div className="bg-oxblood text-bone p-7 sm:p-8 border-l-4 border-brass shadow-modal rounded-xs space-y-6">
               <div>
-                <span className="text-[10px] font-mono uppercase tracking-editorial text-brass block mb-1 font-bold">
+                <span className="text-[10px] uppercase tracking-wider text-brass block mb-1 font-bold">
                   Chambers Address
                 </span>
                 <h3 className="font-serif text-2xl font-bold text-white mb-2">
@@ -50,7 +50,7 @@ export default function ContactPage() {
                 </p>
               </div>
 
-              <div className="border-t border-brass/25 pt-5 space-y-4 text-xs text-bone/85 font-mono">
+              <div className="border-t border-brass/25 pt-5 space-y-4 text-xs text-bone/85">
                 <div className="flex items-center space-x-3">
                   <Mail size={16} className="text-brass shrink-0" />
                   <div>
@@ -74,7 +74,7 @@ export default function ContactPage() {
             {/* Direct Partner Advocates Directory (Exact Required Order) */}
             <div className="bg-white border border-bone-dark p-6 sm:p-7 shadow-subtle rounded-xs space-y-4">
               <div className="border-b border-bone-dark pb-3">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-editorial text-brass block">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-brass block">
                   Direct Partner Access
                 </span>
                 <h4 className="font-serif text-xl font-bold text-oxblood">
@@ -89,14 +89,14 @@ export default function ContactPage() {
                       <p className="font-serif text-base font-bold text-charcoal">
                         {adv.name}
                       </p>
-                      <span className="text-[10px] px-2 py-0.5 bg-oxblood/10 text-oxblood font-mono uppercase font-bold rounded-xs border border-brass/30">
+                      <span className="text-[10px] px-2 py-0.5 bg-oxblood/10 text-oxblood uppercase font-bold rounded-xs border border-brass/30">
                         Partner
                       </span>
                     </div>
                     <p className="text-xs text-oxblood font-semibold">
                       {adv.specialization}
                     </p>
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 text-xs text-charcoal/70 pt-1 font-mono">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 text-xs text-charcoal/70 pt-1 font-medium">
                       {adv.phone && (
                         <a
                           href={`tel:${adv.phone.replace(/\s+/g, '')}`}
@@ -130,7 +130,7 @@ export default function ContactPage() {
                   href="https://maps.google.com/?q=Civil+Court+Gorakhpur+Uttar+Pradesh"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[11px] font-mono text-brass hover:underline flex items-center space-x-1"
+                  className="text-[11px] font-bold uppercase tracking-wider text-brass hover:underline flex items-center space-x-1"
                 >
                   <span>Open Maps</span>
                   <ExternalLink size={12} />

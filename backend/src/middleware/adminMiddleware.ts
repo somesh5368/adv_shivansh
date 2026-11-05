@@ -20,7 +20,7 @@ export async function adminMiddleware(
       req.adminProfile = {
         id: 'ad000000-0000-0000-0000-000000000001',
         user_id: req.user.id,
-        display_name: 'Advocate Shivansh Kumar Pandey',
+        display_name: 'JUSTICE ALLIANCE Associates & Law Firm',
         role: 'super_admin',
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),

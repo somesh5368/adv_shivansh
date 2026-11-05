@@ -13,7 +13,7 @@ export function ArticleCard({ article }: ArticleCardProps) {
     <article className="group bg-white border border-bone-dark hover:border-brass/80 p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-card-hover rounded-xs">
       <div>
         {/* Category & Date */}
-        <div className="flex items-center space-x-3 text-[11px] text-charcoal/60 mb-3.5 font-mono">
+        <div className="flex items-center space-x-3 text-[11px] text-charcoal/60 mb-3.5">
           <span className="inline-flex items-center text-brass font-bold uppercase tracking-wider">
             <Tag size={11} className="mr-1 text-brass" />
             {article.category}

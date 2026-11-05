@@ -108,7 +108,7 @@ export function EntryFlowModal() {
               <ScalesEmblem size={32} glow />
             </div>
             <div>
-              <span className="text-[10px] font-mono tracking-editorial text-brass uppercase block">
+              <span className="text-[10px] uppercase tracking-wider text-brass font-bold block">
                 Statutory Compliance
               </span>
               <h2 className="font-serif text-xl sm:text-2xl font-bold tracking-wide text-white leading-tight">
@@ -157,7 +157,7 @@ export function EntryFlowModal() {
 
           {/* Footer Actions */}
           <div className="bg-bone p-4 sm:p-5 border-t border-bone-dark flex flex-col sm:flex-row items-center justify-between gap-3">
-            <span className="text-[11px] text-charcoal/60 font-mono text-center sm:text-left">
+            <span className="text-[11px] text-charcoal/60 text-center sm:text-left font-medium">
               Session compliance token retained
             </span>
             <div className="flex items-center space-x-3 w-full sm:w-auto">
@@ -193,7 +193,7 @@ export function EntryFlowModal() {
             <div className="flex items-center space-x-3">
               <ScalesEmblem size={26} className="text-brass" />
               <div>
-                <span className="text-[10px] font-mono tracking-editorial text-brass uppercase block">
+                <span className="text-[10px] uppercase tracking-wider text-brass font-bold block">
                   Justice Alliance Associates
                 </span>
                 <h2 className="font-serif text-xl sm:text-2xl font-bold tracking-wide text-white">

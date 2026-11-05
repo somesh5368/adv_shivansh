@@ -18,7 +18,7 @@ export default function AboutPage() {
       {/* Title & Introduction */}
       <section className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="border-b border-bone-dark pb-10 space-y-4 max-w-4xl">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 bg-oxblood/10 border border-brass/40 text-oxblood text-xs font-mono uppercase tracking-editorial rounded-xs">
+          <div className="inline-flex items-center space-x-2 px-3 py-1 bg-oxblood/10 border border-brass/40 text-oxblood text-xs font-semibold uppercase tracking-wider rounded-xs">
             <Scale size={12} className="text-brass" />
             <span>Firm Profile & Background</span>
           </div>
@@ -27,7 +27,7 @@ export default function AboutPage() {
             Justice Alliance Associates & Law Firm
           </h1>
 
-          <p className="text-xs sm:text-sm uppercase tracking-wider text-brass font-bold font-mono">
+          <p className="text-xs sm:text-sm uppercase tracking-wider text-brass font-bold">
             Civil, Criminal, Cyber, Family & Taxation Law Practice &bull; Gorakhpur, Uttar Pradesh
           </p>
 
@@ -90,14 +90,14 @@ export default function AboutPage() {
                 <h3 className="font-serif text-xl font-bold text-oxblood">
                   Chambers Coordinates
                 </h3>
-                <p className="text-[11px] text-charcoal/60 mt-0.5 font-mono">
+                <p className="text-[11px] text-charcoal/60 mt-0.5 font-medium">
                   Civil Court, Gorakhpur
                 </p>
               </div>
 
               <div className="space-y-4 text-xs">
                 <div>
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-charcoal/60 block mb-0.5">
+                  <span className="text-[10px] uppercase tracking-wider text-charcoal/60 block mb-0.5 font-semibold">
                     Statutory Affiliation
                   </span>
                   <span className="font-semibold text-oxblood">
@@ -106,7 +106,7 @@ export default function AboutPage() {
                 </div>
 
                 <div>
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-charcoal/60 block mb-0.5">
+                  <span className="text-[10px] uppercase tracking-wider text-charcoal/60 block mb-0.5 font-semibold">
                     Chambers Location
                   </span>
                   <span className="text-charcoal/80 block">
@@ -115,22 +115,22 @@ export default function AboutPage() {
                 </div>
 
                 <div>
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-charcoal/60 block mb-0.5">
+                  <span className="text-[10px] uppercase tracking-wider text-charcoal/60 block mb-0.5 font-semibold">
                     Official Email
                   </span>
                   <a
                     href="mailto:justicealliencelaw@gmail.com"
-                    className="font-mono text-oxblood hover:underline block"
+                    className="text-oxblood hover:underline block font-semibold"
                   >
                     justicealliencelaw@gmail.com
                   </a>
                 </div>
 
                 <div>
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-charcoal/60 block mb-0.5">
+                  <span className="text-[10px] uppercase tracking-wider text-charcoal/60 block mb-0.5 font-semibold">
                     Consultation Hours
                   </span>
-                  <span className="text-charcoal/80 block font-mono">
+                  <span className="text-charcoal/80 block font-medium">
                     Mon – Sat: 10:00 AM – 5:00 PM (By Appointment)
                   </span>
                 </div>
@@ -153,7 +153,7 @@ export default function AboutPage() {
       <section className="bg-bone-light/60 py-20 border-y border-bone-dark">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <span className="text-xs font-mono font-bold uppercase tracking-editorial text-brass block">
+            <span className="text-xs font-bold uppercase tracking-wider text-brass block">
               Chamber Partners
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-oxblood">

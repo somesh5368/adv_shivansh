@@ -15,7 +15,7 @@ export default function DisclaimerPage() {
     <div className="py-16 sm:py-24 space-y-16">
       <section className="max-w-4xl mx-auto px-4 sm:px-8">
         <div className="border-b border-bone-dark pb-8 space-y-3">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 bg-oxblood/10 border border-brass/40 text-oxblood text-xs font-mono uppercase tracking-editorial rounded-xs">
+          <div className="inline-flex items-center space-x-2 px-3 py-1 bg-oxblood/10 border border-brass/40 text-oxblood text-xs font-semibold uppercase tracking-wider rounded-xs">
             <Scale size={12} className="text-brass" />
             <span>Regulatory Compliance</span>
           </div>
@@ -24,7 +24,7 @@ export default function DisclaimerPage() {
             Bar Council of India Disclaimer
           </h1>
 
-          <p className="text-xs text-charcoal/70 uppercase tracking-wider font-mono">
+          <p className="text-xs text-charcoal/70 uppercase tracking-wider font-medium">
             Rule 36, Section IV, Chapter II, Part VI of the Bar Council of India Rules
           </p>
         </div>

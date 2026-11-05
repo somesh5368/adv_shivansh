@@ -31,7 +31,7 @@ export function Footer() {
               A distinguished legal chamber committed to judicial integrity, statutory excellence, and resolute advocacy across Civil, Criminal, Cyber, Family, and Taxation litigation.
             </p>
 
-            <div className="pt-2 text-xs text-bone/60 space-y-1.5 font-mono">
+            <div className="pt-2 text-xs text-bone/70 space-y-1.5 font-medium">
               <div className="flex items-center space-x-2">
                 <Mail size={13} className="text-brass shrink-0" />
                 <a href="mailto:justicealliencelaw@gmail.com" className="hover:text-brass transition-colors">
@@ -47,7 +47,7 @@ export function Footer() {
 
           {/* Column 2: Partner Advocates Directory (Exact Required Order) (3 cols) */}
           <div className="lg:col-span-3 space-y-4">
-            <span className="text-xs font-mono font-bold uppercase tracking-editorial text-brass block">
+            <span className="text-xs font-bold uppercase tracking-wider text-brass block">
               Our Advocates
             </span>
             <div className="space-y-4 text-xs">
@@ -59,7 +59,7 @@ export function Footer() {
                 <p className="text-[11px] text-brass font-medium">
                   Civil & Taxation Law
                 </p>
-                <a href="tel:+919198106052" className="text-[11px] text-bone/70 hover:text-brass font-mono block">
+                <a href="tel:+919198106052" className="text-[11px] text-bone/80 hover:text-brass font-semibold block">
                   +91 9198106052
                 </a>
               </div>
@@ -72,7 +72,7 @@ export function Footer() {
                 <p className="text-[11px] text-brass font-medium">
                   Cyber & Criminal Law
                 </p>
-                <a href="tel:+918935090610" className="text-[11px] text-bone/70 hover:text-brass font-mono block">
+                <a href="tel:+918935090610" className="text-[11px] text-bone/80 hover:text-brass font-semibold block">
                   +91 89350 90610
                 </a>
               </div>
@@ -85,7 +85,7 @@ export function Footer() {
                 <p className="text-[11px] text-brass font-medium">
                   Criminal & Family Law
                 </p>
-                <a href="tel:+919517452736" className="text-[11px] text-bone/70 hover:text-brass font-mono block">
+                <a href="tel:+919517452736" className="text-[11px] text-bone/80 hover:text-brass font-semibold block">
                   +91 95174 52736
                 </a>
               </div>
@@ -94,7 +94,7 @@ export function Footer() {
 
           {/* Column 3: 5 Practice Disciplines (3 cols) */}
           <div className="lg:col-span-3 space-y-4">
-            <span className="text-xs font-mono font-bold uppercase tracking-editorial text-brass block">
+            <span className="text-xs font-bold uppercase tracking-wider text-brass block">
               Practice Disciplines
             </span>
             <ul className="space-y-2 text-xs">
@@ -128,7 +128,7 @@ export function Footer() {
 
           {/* Column 4: Quick Navigation & Chamber (2 cols) */}
           <div className="lg:col-span-2 space-y-4">
-            <span className="text-xs font-mono font-bold uppercase tracking-editorial text-brass block">
+            <span className="text-xs font-bold uppercase tracking-wider text-brass block">
               Quick Links
             </span>
             <ul className="space-y-2 text-xs">
@@ -153,7 +153,7 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/admin/login" className="text-brass hover:underline font-mono">
+                <Link href="/admin/login" className="text-brass hover:underline font-semibold">
                   Admin Chamber
                 </Link>
               </li>
@@ -175,9 +175,9 @@ export function Footer() {
       </div>
 
       {/* Sub-Footer Copyright */}
-      <div className="bg-charcoal-dark border-t border-charcoal-light/70 py-4 px-4 sm:px-8 text-center text-[11px] text-bone/50 font-mono">
+      <div className="bg-charcoal-dark border-t border-charcoal-light/70 py-4 px-4 sm:px-8 text-center text-[11px] text-bone/50 font-medium">
         <p>
-          &copy; {currentYear} Justice Alliance Associates & Law Firm. All statutory rights reserved.
+          &copy; {currentYear} Justice Alliance Associates &amp; Law Firm. All statutory rights reserved.
         </p>
       </div>
     </footer>

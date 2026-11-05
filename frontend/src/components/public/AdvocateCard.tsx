@@ -27,7 +27,7 @@ export function AdvocateCard({ advocate }: AdvocateCardProps) {
             <p className="text-xs font-bold uppercase tracking-wider text-oxblood mt-1">
               {advocate.specialization}
             </p>
-            <p className="text-[11px] text-charcoal/60 font-mono mt-0.5 flex items-center space-x-1">
+            <p className="text-[11px] text-charcoal/65 mt-0.5 flex items-center space-x-1 font-medium">
               <MapPin size={10} className="text-brass shrink-0" />
               <span className="truncate">{advocate.court}</span>
             </p>
@@ -41,7 +41,7 @@ export function AdvocateCard({ advocate }: AdvocateCardProps) {
 
         {/* Key Disciplines Chips */}
         <div className="space-y-2 pt-2 border-t border-bone-dark">
-          <span className="text-[10px] font-mono tracking-editorial uppercase text-charcoal/50 block font-semibold">
+          <span className="text-[10px] uppercase text-charcoal/60 block font-bold tracking-wider">
             Key Disciplines
           </span>
           <div className="flex flex-wrap gap-1.5">
@@ -57,12 +57,12 @@ export function AdvocateCard({ advocate }: AdvocateCardProps) {
         </div>
 
         {/* Contact Coordinates */}
-        <div className="space-y-2.5 pt-3 border-t border-bone-dark text-xs font-mono">
+        <div className="space-y-2.5 pt-3 border-t border-bone-dark text-xs">
           <div className="flex items-center space-x-2.5">
             <Phone size={14} className="text-brass shrink-0" />
             <a
               href={`tel:${advocate.phone.replace(/\s+/g, '')}`}
-              className="text-charcoal hover:text-oxblood font-bold transition-colors"
+              className="text-charcoal hover:text-oxblood font-bold tracking-wide transition-colors"
             >
               {advocate.phone}
             </a>
@@ -71,7 +71,7 @@ export function AdvocateCard({ advocate }: AdvocateCardProps) {
             <Mail size={14} className="text-brass shrink-0" />
             <a
               href={`mailto:${advocate.email}`}
-              className="text-charcoal/75 hover:text-oxblood truncate transition-colors"
+              className="text-charcoal/75 hover:text-oxblood truncate font-medium transition-colors"
             >
               {advocate.email}
             </a>

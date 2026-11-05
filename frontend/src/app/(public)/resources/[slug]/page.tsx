@@ -53,7 +53,7 @@ export default async function ArticleDetailPage({ params }: Props) {
         </Link>
 
         <div className="space-y-4 border-b border-bone-dark pb-8">
-          <div className="flex items-center space-x-3 text-xs text-charcoal/60 font-mono">
+          <div className="flex items-center space-x-3 text-xs text-charcoal/60">
             <span className="inline-flex items-center text-brass font-bold uppercase tracking-wider">
               <Tag size={12} className="mr-1 text-brass" />
               {article.category}
@@ -73,7 +73,7 @@ export default async function ArticleDetailPage({ params }: Props) {
             {article.excerpt}
           </p>
 
-          <div className="flex items-center space-x-2 pt-2 text-xs text-charcoal/70 font-mono">
+          <div className="flex items-center space-x-2 pt-2 text-xs text-charcoal/70">
             <UserCheck size={14} className="text-brass" />
             <span>Authored by <strong>Justice Alliance Associates & Law Firm</strong></span>
           </div>

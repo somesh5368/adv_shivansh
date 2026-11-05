@@ -175,11 +175,11 @@ export default function AdminSecurityPage() {
         )}
 
         {/* Section 1: Administrator Accounts & Revocation */}
-        <div className="bg-white border border-ivory-dark p-5 sm:p-8 shadow-subtle space-y-6">
-          <div className="flex items-center space-x-3 border-b border-ivory-dark pb-3">
-            <UserCheck className="text-gold" size={20} />
+        <div className="bg-white border border-bone-dark p-5 sm:p-8 shadow-card rounded-xs space-y-6">
+          <div className="flex items-center space-x-3 border-b border-bone-dark pb-3">
+            <UserCheck className="text-brass" size={20} />
             <div>
-              <h3 className="font-serif text-lg font-bold text-navy">
+              <h3 className="font-serif text-lg font-bold text-oxblood">
                 Chamber Administrator Accounts
               </h3>
               <p className="text-[11px] text-charcoal/60">
@@ -188,24 +188,24 @@ export default function AdminSecurityPage() {
             </div>
           </div>
 
-          <div className="divide-y divide-ivory-dark border border-ivory-dark">
+          <div className="divide-y divide-bone-dark border border-bone-dark rounded-xs">
             {admins.map((adm) => (
               <div key={adm.id} className="p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white">
                 <div className="space-y-1">
                   <div className="flex items-center space-x-2">
-                    <span className="font-bold text-navy text-sm">{adm.display_name}</span>
+                    <span className="font-bold text-oxblood text-sm">{adm.display_name}</span>
                     {adm.isPrimary ? (
-                      <span className="px-2 py-0.5 text-[10px] uppercase font-mono font-bold bg-navy text-gold border border-gold/30">
+                      <span className="px-2 py-0.5 text-[10px] uppercase font-bold bg-oxblood text-brass border border-brass/30 rounded-xs">
                         Primary Chamber Owner
                       </span>
                     ) : (
-                      <span className="px-2 py-0.5 text-[10px] uppercase font-mono font-bold bg-amber-100 text-amber-900 border border-amber-300">
-                        Temporary Development Account
+                      <span className="px-2 py-0.5 text-[10px] uppercase font-bold bg-amber-100 text-amber-900 border border-amber-300 rounded-xs">
+                        Administrative Account
                       </span>
                     )}
                   </div>
-                  <div className="text-xs text-charcoal/70 font-mono">
-                    Email: <span className="text-navy font-semibold">{adm.email}</span> &bull; Role: <span className="uppercase">{adm.role}</span>
+                  <div className="text-xs text-charcoal/70">
+                    Email: <span className="text-oxblood font-semibold">{adm.email}</span> &bull; Role: <span className="uppercase font-bold">{adm.role}</span>
                   </div>
                   <div className="text-[11px] text-charcoal/50">
                     Created: {formatDate(adm.created_at)}
@@ -214,7 +214,7 @@ export default function AdminSecurityPage() {
 
                 <div>
                   {adm.isPrimary ? (
-                    <span className="text-xs text-charcoal/50 italic font-mono px-3 py-1.5 border border-ivory-dark bg-ivory-light block text-center">
+                    <span className="text-xs text-charcoal/50 italic px-3 py-1.5 border border-bone-dark bg-bone-light block text-center rounded-xs">
                       Protected (Permanent)
                     </span>
                   ) : (
@@ -224,7 +224,7 @@ export default function AdminSecurityPage() {
                       size="sm"
                       isLoading={revokingEmail === adm.email}
                       onClick={() => handleRevokeAdmin(adm.email)}
-                      className="text-xs text-red-700 border-red-300 hover:bg-red-50 hover:border-red-400 font-mono w-full sm:w-auto"
+                      className="text-xs text-red-700 border-red-300 hover:bg-red-50 hover:border-red-400 w-full sm:w-auto"
                     >
                       <UserX size={14} className="mr-1.5 text-red-600" />
                       <span>Revoke & Remove Access</span>
@@ -237,11 +237,11 @@ export default function AdminSecurityPage() {
         </div>
 
         {/* Section 2: Change Administrator Password */}
-        <div className="bg-white border border-ivory-dark p-5 sm:p-8 shadow-subtle space-y-6">
-          <div className="flex items-center space-x-3 border-b border-ivory-dark pb-3">
-            <Lock className="text-gold" size={20} />
+        <div className="bg-white border border-bone-dark p-5 sm:p-8 shadow-card rounded-xs space-y-6">
+          <div className="flex items-center space-x-3 border-b border-bone-dark pb-3">
+            <Lock className="text-brass" size={20} />
             <div>
-              <h3 className="font-serif text-lg font-bold text-navy">
+              <h3 className="font-serif text-lg font-bold text-oxblood">
                 Change Administrator Password
               </h3>
               <p className="text-[11px] text-charcoal/60">
@@ -273,17 +273,17 @@ export default function AdminSecurityPage() {
               size="sm"
               isLoading={updatingPassword}
             >
-              <KeyRound size={14} className="mr-1.5 text-gold" />
+              <KeyRound size={14} className="mr-1.5 text-brass" />
               <span>Update Password</span>
             </Button>
           </form>
         </div>
 
         {/* Section 3: Brevo Transactional Email Test */}
-        <div className="bg-white border border-ivory-dark p-5 sm:p-8 shadow-subtle space-y-6">
-          <div className="flex items-center space-x-3 border-b border-ivory-dark pb-3">
-            <Mail className="text-gold" size={20} />
-            <h3 className="font-serif text-lg font-bold text-navy">
+        <div className="bg-white border border-bone-dark p-5 sm:p-8 shadow-card rounded-xs space-y-6">
+          <div className="flex items-center space-x-3 border-b border-bone-dark pb-3">
+            <Mail className="text-brass" size={20} />
+            <h3 className="font-serif text-lg font-bold text-oxblood">
               Brevo Transactional Email Pipeline Tester
             </h3>
           </div>
@@ -314,17 +314,17 @@ export default function AdminSecurityPage() {
               onChange={(e) => setTestMessage(e.target.value)}
             />
             <Button type="submit" variant="primary" size="sm" isLoading={sendingTest}>
-              <Send size={14} className="mr-1.5 text-gold" />
+              <Send size={14} className="mr-1.5 text-brass" />
               <span>Send Transactional Test</span>
             </Button>
           </form>
         </div>
 
         {/* Section 4: General Enquiries Inbox */}
-        <div className="bg-white border border-ivory-dark p-5 sm:p-8 shadow-subtle space-y-4">
-          <div className="flex items-center space-x-3 border-b border-ivory-dark pb-3">
-            <MessageSquare className="text-gold" size={20} />
-            <h3 className="font-serif text-lg font-bold text-navy">
+        <div className="bg-white border border-bone-dark p-5 sm:p-8 shadow-card rounded-xs space-y-4">
+          <div className="flex items-center space-x-3 border-b border-bone-dark pb-3">
+            <MessageSquare className="text-brass" size={20} />
+            <h3 className="font-serif text-lg font-bold text-oxblood">
               Public Practice Inquiries ({enquiries.length})
             </h3>
           </div>
@@ -332,19 +332,19 @@ export default function AdminSecurityPage() {
           {enquiries.length === 0 ? (
             <p className="text-xs text-charcoal/60 py-4">No enquiries received yet.</p>
           ) : (
-            <div className="divide-y divide-ivory-dark">
+            <div className="divide-y divide-bone-dark">
               {enquiries.map((enq) => (
                 <div key={enq.id} className="py-4 space-y-2 text-xs">
                   <div className="flex items-center justify-between">
-                    <span className="font-semibold text-navy text-sm">{enq.full_name}</span>
+                    <span className="font-semibold text-oxblood text-sm">{enq.full_name}</span>
                     <span className="text-[11px] text-charcoal/50">{formatDate(enq.created_at)}</span>
                   </div>
                   <div className="text-charcoal/70 space-x-4">
-                    <span>Email: <a href={`mailto:${enq.email}`} className="text-navy underline">{enq.email}</a></span>
-                    <span>Phone: <a href={`tel:${enq.phone}`} className="text-navy">{enq.phone}</a></span>
+                    <span>Email: <a href={`mailto:${enq.email}`} className="text-oxblood underline">{enq.email}</a></span>
+                    <span>Phone: <a href={`tel:${enq.phone}`} className="text-oxblood">{enq.phone}</a></span>
                   </div>
-                  <p className="font-medium text-navy">Subject: {enq.subject}</p>
-                  <p className="bg-ivory-light p-3 border border-ivory-dark text-charcoal/80 leading-relaxed">
+                  <p className="font-medium text-oxblood">Subject: {enq.subject}</p>
+                  <p className="bg-bone-light p-3 border border-bone-dark text-charcoal/80 leading-relaxed rounded-xs">
                     {enq.message}
                   </p>
                   <div className="flex items-center space-x-2 pt-1">
@@ -353,10 +353,10 @@ export default function AdminSecurityPage() {
                       <button
                         key={st}
                         onClick={() => handleUpdateEnquiry(enq.id, st)}
-                        className={`px-2 py-0.5 text-[10px] uppercase font-semibold border ${
+                        className={`px-2.5 py-1 text-[10px] uppercase font-bold border rounded-xs transition-colors ${
                           enq.status === st
-                            ? 'bg-navy text-white border-navy'
-                            : 'bg-white text-charcoal/60 border-ivory-dark hover:border-navy'
+                            ? 'bg-oxblood text-brass border-oxblood'
+                            : 'bg-white text-charcoal/60 border-bone-dark hover:border-oxblood'
                         }`}
                       >
                         {st}
@@ -370,28 +370,28 @@ export default function AdminSecurityPage() {
         </div>
 
         {/* Section 5: Privileged Audit Logs */}
-        <div className="bg-white border border-ivory-dark p-5 sm:p-8 shadow-subtle space-y-4">
-          <div className="flex items-center space-x-3 border-b border-ivory-dark pb-3">
-            <Activity className="text-gold" size={20} />
-            <h3 className="font-serif text-lg font-bold text-navy">
+        <div className="bg-white border border-bone-dark p-5 sm:p-8 shadow-card rounded-xs space-y-4">
+          <div className="flex items-center space-x-3 border-b border-bone-dark pb-3">
+            <Activity className="text-brass" size={20} />
+            <h3 className="font-serif text-lg font-bold text-oxblood">
               Immutable Privileged Audit Trail
             </h3>
           </div>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs border-collapse font-mono">
+            <table className="w-full text-left text-xs border-collapse">
               <thead>
-                <tr className="bg-ivory-light border-b border-ivory-dark text-charcoal/70 uppercase">
+                <tr className="bg-bone-light border-b border-bone-dark text-charcoal/70 uppercase font-bold tracking-wider text-[11px]">
                   <th className="py-2.5 px-4">Action</th>
                   <th className="py-2.5 px-4">Resource</th>
                   <th className="py-2.5 px-4">Actor ID</th>
                   <th className="py-2.5 px-4 text-right">Timestamp</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-ivory-dark">
+              <tbody className="divide-y divide-bone-dark">
                 {auditLogs.map((log) => (
-                  <tr key={log.id} className="hover:bg-ivory/50">
-                    <td className="py-3 px-4 text-navy font-semibold">{log.action}</td>
+                  <tr key={log.id} className="hover:bg-bone/40 transition-colors">
+                    <td className="py-3 px-4 text-oxblood font-semibold">{log.action}</td>
                     <td className="py-3 px-4 text-charcoal/80">{log.resource_type}</td>
                     <td className="py-3 px-4 text-charcoal/60 truncate max-w-[150px]">{log.actor_user_id || 'system'}</td>
                     <td className="py-3 px-4 text-right text-charcoal/60">{new Date(log.created_at).toLocaleString()}</td>

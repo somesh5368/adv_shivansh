@@ -58,7 +58,7 @@ export default function PracticeAreaDetailPage({ params }: Props) {
         </Link>
 
         <div className="border-b border-bone-dark pb-8 space-y-4 max-w-4xl">
-          <span className="text-xs font-mono font-bold uppercase tracking-editorial text-brass block">
+          <span className="text-xs font-bold uppercase tracking-wider text-brass block">
             Practice Area
           </span>
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-oxblood">
@@ -88,7 +88,7 @@ export default function PracticeAreaDetailPage({ params }: Props) {
 
               {/* Lead Practice Partner note */}
               <div className="pt-4 border-t border-bone-dark flex items-center justify-between text-xs">
-                <span className="text-charcoal/60 font-mono">Lead Discipline Partner:</span>
+                <span className="text-charcoal/60 font-semibold">Lead Discipline Partner:</span>
                 <span className="font-bold text-oxblood">{assignedAdvocate.name} ({assignedAdvocate.specialization})</span>
               </div>
             </div>
@@ -97,7 +97,7 @@ export default function PracticeAreaDetailPage({ params }: Props) {
             {area.services && area.services.length > 0 && (
               <div className="space-y-6">
                 <div>
-                  <span className="text-xs font-mono font-bold uppercase tracking-editorial text-brass block mb-1">
+                  <span className="text-xs font-bold uppercase tracking-wider text-brass block mb-1">
                     Specific Legal Services
                   </span>
                   <h3 className="font-serif text-2xl sm:text-3xl font-bold text-oxblood">
@@ -135,7 +135,7 @@ export default function PracticeAreaDetailPage({ params }: Props) {
             <div className="bg-oxblood text-bone p-7 border-l-4 border-brass space-y-5 rounded-xs shadow-card">
               <div className="flex items-center space-x-2 text-brass">
                 <Scale size={18} />
-                <span className="text-[11px] font-mono uppercase tracking-widest font-bold">
+                <span className="text-[11px] uppercase tracking-wider font-bold">
                   Chamber Consultation
                 </span>
               </div>
@@ -146,7 +146,7 @@ export default function PracticeAreaDetailPage({ params }: Props) {
                 To schedule an appointment or seek counsel regarding {area.title}, contact our legal chambers.
               </p>
 
-              <div className="space-y-2.5 text-xs text-bone/85 pt-2 border-t border-brass/20 font-mono">
+              <div className="space-y-2.5 text-xs text-bone/85 pt-2 border-t border-brass/20">
                 {assignedAdvocate.phone && (
                   <div className="flex items-center space-x-2">
                     <Phone size={14} className="text-brass" />

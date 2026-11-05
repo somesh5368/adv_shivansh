@@ -50,7 +50,7 @@ export function Header() {
                 justicealliencelaw@gmail.com
               </a>
             </div>
-            <div className="flex items-center space-x-4 text-[10px] uppercase tracking-wider font-mono">
+            <div className="flex items-center space-x-4 text-[11px] uppercase tracking-wider font-semibold">
               <Link href="/about" className="hover:text-brass transition-colors">
                 About the Firm
               </Link>
@@ -162,7 +162,7 @@ export function Header() {
                     <span className="font-serif text-sm font-bold tracking-wide text-white block">
                       JUSTICE ALLIANCE
                     </span>
-                    <span className="text-[9px] font-mono text-brass uppercase tracking-widest block">
+                    <span className="text-[9px] text-brass uppercase tracking-widest block font-bold">
                       Associates & Law Firm
                     </span>
                   </div>
@@ -203,12 +203,12 @@ export function Header() {
                 Book Appointment
               </Link>
 
-              <div className="text-[11px] text-bone/60 space-y-1 font-mono pt-1">
+              <div className="text-[11px] text-bone/60 space-y-1 pt-1 font-medium">
                 <p>Email: justicealliencelaw@gmail.com</p>
                 <p>Civil Court Campus, Gorakhpur, UP</p>
               </div>
 
-              <div className="pt-2 border-t border-charcoal-light flex items-center justify-between text-[10px] text-bone/50 font-mono">
+              <div className="pt-2 border-t border-charcoal-light flex items-center justify-between text-[10px] text-bone/50">
                 <Link
                   href="/disclaimer"
                   onClick={() => setMobileMenuOpen(false)}

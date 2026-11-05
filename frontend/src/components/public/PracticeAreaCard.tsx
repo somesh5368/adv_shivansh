@@ -39,7 +39,7 @@ export function PracticeAreaCard({ practiceArea }: PracticeAreaCardProps) {
           {/* Floating Icon Pill */}
           <div className="absolute bottom-3 left-4 flex items-center space-x-2 bg-charcoal/90 backdrop-blur-md px-3 py-1.5 border border-brass/50 rounded-xs">
             {icon}
-            <span className="text-[10px] font-mono tracking-editorial uppercase text-brass font-bold">
+            <span className="text-[10px] uppercase text-brass font-bold tracking-wider">
               Practice Discipline
             </span>
           </div>
@@ -49,7 +49,7 @@ export function PracticeAreaCard({ practiceArea }: PracticeAreaCardProps) {
           <div className="w-12 h-12 rounded-xs bg-charcoal/5 border border-brass/30 flex items-center justify-center group-hover:bg-oxblood group-hover:border-brass transition-colors duration-300">
             {icon}
           </div>
-          <span className="text-[10px] font-mono tracking-editorial uppercase text-charcoal/50 group-hover:text-oxblood transition-colors font-semibold">
+          <span className="text-[10px] uppercase text-charcoal/50 group-hover:text-oxblood transition-colors font-bold tracking-wider">
             Discipline
           </span>
         </div>

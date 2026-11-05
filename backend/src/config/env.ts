@@ -13,8 +13,8 @@ const envSchema = z.object({
   SUPABASE_SECRET_KEY: z.string().optional(),
   SUPABASE_JWKS_URL: z.string().optional(),
   BREVO_API_KEY: z.string().default('placeholder-brevo-key'),
-  BREVO_SENDER_EMAIL: z.string().email().default('advshiv43@gmail.com'),
-  BREVO_SENDER_NAME: z.string().default('Adv. Shivansh Kumar Pandey'),
+  BREVO_SENDER_EMAIL: z.string().email().default('justicealliencelaw@gmail.com'),
+  BREVO_SENDER_NAME: z.string().default('Justice Alliance Associates & Law Firm'),
 });
 
 const parsed = envSchema.safeParse(process.env);
