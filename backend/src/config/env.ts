@@ -6,7 +6,7 @@ dotenv.config();
 const envSchema = z.object({
   PORT: z.string().default('5000').transform((val) => parseInt(val, 10)),
   NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
-  FRONTEND_ORIGIN: z.string().default('http://localhost:3000'),
+  FRONTEND_ORIGIN: z.string().default('https://adv-shivansh.vercel.app,http://localhost:3000'),
   SUPABASE_URL: z.string().url().default('https://placeholder-project.supabase.co'),
   SUPABASE_PUBLISHABLE_KEY: z.string().default('placeholder-publishable-key'),
   SUPABASE_SERVICE_ROLE_KEY: z.string().optional(),

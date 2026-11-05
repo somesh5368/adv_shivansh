@@ -11,9 +11,20 @@ export function createApp(): Application {
   const app = express();
 
   // 1. Security Headers
+  const defaultAllowedOrigins = [
+    'https://adv-shivansh.vercel.app',
+    'http://localhost:3000',
+    'http://127.0.0.1:3000',
+  ];
+
   const configuredOrigins = env.FRONTEND_ORIGIN
     ? env.FRONTEND_ORIGIN.split(',').map((o) => o.trim().replace(/\/$/, ''))
     : [];
+
+  const allowedOrigins = new Set([
+    ...defaultAllowedOrigins,
+    ...configuredOrigins,
+  ]);
 
   app.use(
     helmet({
@@ -23,7 +34,7 @@ export function createApp(): Application {
           scriptSrc: ["'self'"],
           styleSrc: ["'self'", "'unsafe-inline'"],
           imgSrc: ["'self'", 'data:', 'https:'],
-          connectSrc: ["'self'", ...configuredOrigins, env.SUPABASE_URL],
+          connectSrc: ["'self'", ...allowedOrigins, env.SUPABASE_URL],
         },
       },
       crossOriginEmbedderPolicy: false,
@@ -31,12 +42,6 @@ export function createApp(): Application {
   );
 
   // 2. Strict CORS Configuration
-  const allowedOrigins = new Set([
-    ...configuredOrigins,
-    'http://localhost:3000',
-    'http://127.0.0.1:3000',
-  ]);
-
   app.use(
     cors({
       origin: (origin, callback) => {
@@ -46,12 +51,15 @@ export function createApp(): Application {
         }
 
         const normalizedOrigin = origin.replace(/\/$/, '');
-        if (allowedOrigins.has(normalizedOrigin)) {
+        if (
+          allowedOrigins.has(normalizedOrigin) ||
+          (normalizedOrigin.endsWith('.vercel.app') && normalizedOrigin.includes('shivansh'))
+        ) {
           return callback(null, true);
         }
 
         logger.warn({ origin: normalizedOrigin }, 'CORS blocked unauthorized origin request');
-        return callback(new Error('Cross-Origin Request Blocked by CORS Policy'));
+        return callback(null, false);
       },
       credentials: true,
       methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
