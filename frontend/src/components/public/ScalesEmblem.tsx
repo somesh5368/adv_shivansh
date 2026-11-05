@@ -42,3 +42,4 @@ export function ScalesEmblem({ className = 'text-brass', size = 28, glow = false
     </svg>
   );
 }
+

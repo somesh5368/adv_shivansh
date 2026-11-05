@@ -9,7 +9,8 @@ export const FIRM_PRACTICE_AREAS: PracticeArea[] = [
       'Vigorous defense in criminal proceedings, anticipatory and regular bail applications, trial representation, FIR quashing under Section 482, and appellate advocacy.',
     full_description:
       'Justice Alliance Associates provides strategic defense across all stages of criminal litigation before Judicial Magistrates, Sessions Courts, and the High Court. From emergency bail interventions and custodial safeguards to cross-examination during trial proceedings and appellate challenges, our criminal defense practitioners examine police chargesheets, evidentiary chains of custody, and forensic procedures to guarantee constitutional liberties under Articles 20, 21, and 22 of the Constitution of India.',
-    image_path: null,
+    image_path:
+      'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80',
     display_order: 1,
     is_published: true,
     created_at: '2026-01-01T00:00:00Z',
@@ -73,7 +74,8 @@ export const FIRM_PRACTICE_AREAS: PracticeArea[] = [
       'Legal counsel and litigation for digital financial fraud, Information Technology Act violations, data privacy breaches, cyber defamation, and digital evidence recovery.',
     full_description:
       'In an increasingly digitized socio-economic ecosystem, cyber offenses and digital civil wrongs demand specialized technical comprehension combined with statutory expertise. Justice Alliance Associates provides dedicated legal counsel across offences under the Information Technology Act 2000, unauthorized database access, digital extortion, online financial phishing, crypto asset disputes, and digital defamation. We coordinate with forensic experts and cyber crime police cells to protect our clients rights and secure remedies under Section 65B of the Indian Evidence Act.',
-    image_path: null,
+    image_path:
+      'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80',
     display_order: 2,
     is_published: true,
     created_at: '2026-01-01T00:00:00Z',
@@ -137,7 +139,8 @@ export const FIRM_PRACTICE_AREAS: PracticeArea[] = [
       'Sensitive and steadfast counsel for matrimonial matters, mutual and contested divorce, child custody, maintenance claims under Section 125 CrPC, and domestic protection.',
     full_description:
       'Matrimonial disputes and family legal affairs require utmost sensitivity, strict confidentiality, and strategic legal clarity. Justice Alliance Associates guides clients through the intricate statutory procedures of the Hindu Marriage Act, Special Marriage Act, Guardians and Wards Act, and Protection of Women from Domestic Violence Act. Our priority is safeguarding individual dignity, shielding minor children from protracted conflict, and securing equitable financial maintenance through court adjudication or structured mediation.',
-    image_path: null,
+    image_path:
+      'https://images.unsplash.com/photo-1591115765373-5207764f72e7?auto=format&fit=crop&w=800&q=80',
     display_order: 3,
     is_published: true,
     created_at: '2026-01-01T00:00:00Z',
@@ -201,7 +204,8 @@ export const FIRM_PRACTICE_AREAS: PracticeArea[] = [
       'Rigorous courtroom advocacy in immovable property disputes, partition suits, title declarations, injunctions, specific performance of contracts, and execution proceedings.',
     full_description:
       'Civil litigation demands meticulous evidentiary examination, strict compliance with the Code of Civil Procedure (CPC), and thorough knowledge of property title jurisprudence. Justice Alliance Associates provides representation in property partition, revenue boundary rectifications, cancellation of sale deeds, permanent and mandatory injunctions, specific performance suits, and money recovery. We handle disputes from preliminary legal notices and plaints through to final decrees and execution proceedings before District and Civil Courts.',
-    image_path: null,
+    image_path:
+      'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80',
     display_order: 4,
     is_published: true,
     created_at: '2026-01-01T00:00:00Z',
@@ -265,7 +269,8 @@ export const FIRM_PRACTICE_AREAS: PracticeArea[] = [
       'Strategic advisory and statutory representation for GST notices, scrutiny assessments, Income Tax disputes, appellate tribunals, and corporate fiscal structuring.',
     full_description:
       'Navigating dynamic direct and indirect tax legislations requires an analytical approach that synchronizes statutory compliance with dispute prevention. Justice Alliance Associates advises individuals, MSMEs, commercial traders, and corporations on Goods and Services Tax (GST) inquiries, input tax credit (ITC) reconciliations, show cause notice (SCN) responses, and Income Tax assessment disputes. We represent clients before statutory adjudicating authorities, Appellate Commissioners, and Tax Tribunals with rigorous documentary backing.',
-    image_path: null,
+    image_path:
+      'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80',
     display_order: 5,
     is_published: true,
     created_at: '2026-01-01T00:00:00Z',
@@ -326,3 +331,4 @@ export const FIRM_PRACTICE_AREAS: PracticeArea[] = [
 export function getPracticeAreaBySlug(slug: string): PracticeArea | undefined {
   return FIRM_PRACTICE_AREAS.find((area) => area.slug === slug);
 }
+

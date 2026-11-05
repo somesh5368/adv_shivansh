@@ -51,21 +51,21 @@ export function Footer() {
               Our Advocates
             </span>
             <div className="space-y-4 text-xs">
-              {/* 1. Adv. Shivansh */}
+              {/* 1. Adv. Shivansh Kumar Pandey */}
               <div className="border-l-2 border-brass pl-3 space-y-0.5">
                 <p className="font-serif text-sm font-bold text-white">
-                  Adv. Shivansh
+                  Adv. Shivansh Kumar Pandey
                 </p>
                 <p className="text-[11px] text-brass font-medium">
                   Civil & Taxation Law
                 </p>
-                <p className="text-[11px] text-bone/60">
-                  Senior Counsel &bull; Chamber Anchor
-                </p>
+                <a href="tel:+919198106052" className="text-[11px] text-bone/70 hover:text-brass font-mono block">
+                  +91 9198106052
+                </a>
               </div>
 
               {/* 2. Adv. Rahul Maurya */}
-              <div className="border-l-2 border-charcoal-light pl-3 space-y-0.5">
+              <div className="border-l-2 border-brass pl-3 space-y-0.5">
                 <p className="font-serif text-sm font-bold text-white">
                   Adv. Rahul Maurya
                 </p>
@@ -78,7 +78,7 @@ export function Footer() {
               </div>
 
               {/* 3. Adv. Ratnakar Yadav */}
-              <div className="border-l-2 border-charcoal-light pl-3 space-y-0.5">
+              <div className="border-l-2 border-brass pl-3 space-y-0.5">
                 <p className="font-serif text-sm font-bold text-white">
                   Adv. Ratnakar Yadav
                 </p>

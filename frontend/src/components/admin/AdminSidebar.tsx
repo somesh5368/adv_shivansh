@@ -47,10 +47,10 @@ export function AdminSidebar() {
         <div className="p-6 border-b border-navy-800 flex items-center justify-between">
           <div>
             <span className="font-serif text-lg font-bold tracking-wider text-white block">
-              SHIVANSH KUMAR PANDEY
+              JUSTICE ALLIANCE
             </span>
             <span className="text-[10px] font-mono text-gold uppercase tracking-widest block mt-0.5">
-              Admin Management Suite
+              Associates & Law Firm
             </span>
           </div>
           <button
@@ -124,10 +124,10 @@ export function AdminSidebar() {
           </div>
           <div>
             <span className="font-serif text-sm font-bold tracking-wide text-white block leading-tight">
-              Chamber Admin
+              JUSTICE ALLIANCE
             </span>
             <span className="text-[9px] font-mono text-gold uppercase tracking-wider block">
-              Shivansh Kumar Pandey
+              Associates & Law Firm
             </span>
           </div>
         </div>

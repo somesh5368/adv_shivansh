@@ -161,3 +161,4 @@ export const FIRM_ARTICLES: Article[] = [
 export function getArticleBySlug(slug: string): Article | undefined {
   return FIRM_ARTICLES.find((art) => art.slug === slug);
 }
+

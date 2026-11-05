@@ -10,7 +10,7 @@ import { ShieldCheck, Mail, Key, ArrowRight, AlertCircle, Info } from 'lucide-re
 
 export default function AdminLoginPage() {
   const router = useRouter();
-  const [email, setEmail] = useState('advshiv43@gmail.com');
+  const [email, setEmail] = useState('justicealliencelaw@gmail.com');
   const [password, setPassword] = useState('');
   const [otpCode, setOtpCode] = useState('');
   const [useOtpMode, setUseOtpMode] = useState(false);
@@ -124,10 +124,10 @@ export default function AdminLoginPage() {
           <ShieldCheck size={28} className="text-gold" />
         </div>
         <h2 className="font-serif text-3xl font-bold tracking-wider text-white">
-          Chamber Administration
+          JUSTICE ALLIANCE
         </h2>
         <p className="text-xs uppercase tracking-widest text-gold font-mono">
-          Advocate Practice Management Portal
+          Associates & Law Firm &bull; Practice Portal
         </p>
       </div>
 
@@ -188,7 +188,7 @@ export default function AdminLoginPage() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="advshiv43@gmail.com"
+                placeholder="justicealliencelaw@gmail.com"
               />
 
               <Input
@@ -222,7 +222,7 @@ export default function AdminLoginPage() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="advshiv43@gmail.com"
+                placeholder="justicealliencelaw@gmail.com"
                 disabled={otpSent}
               />
 

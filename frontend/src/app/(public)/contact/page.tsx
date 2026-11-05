@@ -89,11 +89,9 @@ export default function ContactPage() {
                       <p className="font-serif text-base font-bold text-charcoal">
                         {adv.name}
                       </p>
-                      {adv.isPrimary && (
-                        <span className="text-[10px] px-2 py-0.5 bg-oxblood text-brass font-mono uppercase font-bold rounded-xs">
-                          Anchor Lead
-                        </span>
-                      )}
+                      <span className="text-[10px] px-2 py-0.5 bg-oxblood/10 text-oxblood font-mono uppercase font-bold rounded-xs border border-brass/30">
+                        Partner
+                      </span>
                     </div>
                     <p className="text-xs text-oxblood font-semibold">
                       {adv.specialization}

@@ -5,13 +5,14 @@ import { ApiError } from '../utils/apiError.js';
 import { EmailService } from './emailService.js';
 import { AuditService } from './auditService.js';
 
+export const FIRM_ADMIN_EMAIL = 'justicealliencelaw@gmail.com';
 export const PRIMARY_ADMIN_EMAIL = 'advshiv43@gmail.com';
 export const TEMPORARY_ADMIN_EMAIL = 'spandey5368@gmail.com';
 const DEFAULT_SEED_PASSWORD = 'Shiv@1234';
 
 export class AdminAccountService {
   /**
-   * Initializes permanent advocate and temporary development accounts in Supabase Auth and admin_profiles
+   * Initializes permanent firm, advocate and temporary development accounts in Supabase Auth and admin_profiles
    */
   static async seedDefaultAdmins(): Promise<void> {
     if (env.SUPABASE_URL.includes('placeholder-project')) {
@@ -25,27 +26,63 @@ export class AdminAccountService {
         return;
       }
 
-      // 1. Ensure advshiv43@gmail.com exists
+      // 1. Ensure justicealliencelaw@gmail.com exists (Firm Administrator)
+      let firmAdmin = usersData.users.find((u) => u.email?.toLowerCase() === FIRM_ADMIN_EMAIL);
+      if (!firmAdmin) {
+        const { data: createdFirm, error: firmErr } = await supabaseAdmin.auth.admin.createUser({
+          email: FIRM_ADMIN_EMAIL,
+          password: DEFAULT_SEED_PASSWORD,
+          email_confirm: true,
+          user_metadata: { full_name: 'JUSTICE ALLIANCE Associates & Law Firm' },
+        });
+
+        if (!firmErr && createdFirm?.user) {
+          firmAdmin = createdFirm.user;
+          logger.info(`[Auth-Seed] Initialized firm administration account: ${FIRM_ADMIN_EMAIL}`);
+        }
+      } else {
+        // Ensure password is set to Shiv@1234
+        await supabaseAdmin.auth.admin.updateUserById(firmAdmin.id, {
+          password: DEFAULT_SEED_PASSWORD,
+        }).catch(() => {});
+      }
+
+      if (firmAdmin) {
+        await supabaseAdmin.from('admin_profiles').upsert(
+          {
+            user_id: firmAdmin.id,
+            display_name: 'JUSTICE ALLIANCE Associates & Law Firm',
+            role: 'super_admin',
+          },
+          { onConflict: 'user_id' }
+        );
+      }
+
+      // 2. Ensure advshiv43@gmail.com exists
       let advshiv = usersData.users.find((u) => u.email?.toLowerCase() === PRIMARY_ADMIN_EMAIL);
       if (!advshiv) {
         const { data: created, error: createErr } = await supabaseAdmin.auth.admin.createUser({
           email: PRIMARY_ADMIN_EMAIL,
           password: DEFAULT_SEED_PASSWORD,
           email_confirm: true,
-          user_metadata: { full_name: 'Advocate Shivansh Kumar Pandey' },
+          user_metadata: { full_name: 'JUSTICE ALLIANCE Associates & Law Firm' },
         });
 
         if (!createErr && created?.user) {
           advshiv = created.user;
           logger.info(`[Auth-Seed] Initialized primary chamber account: ${PRIMARY_ADMIN_EMAIL}`);
         }
+      } else {
+        await supabaseAdmin.auth.admin.updateUserById(advshiv.id, {
+          password: DEFAULT_SEED_PASSWORD,
+        }).catch(() => {});
       }
 
       if (advshiv) {
         await supabaseAdmin.from('admin_profiles').upsert(
           {
             user_id: advshiv.id,
-            display_name: 'Advocate Shivansh Kumar Pandey',
+            display_name: 'JUSTICE ALLIANCE Associates & Law Firm',
             role: 'super_admin',
           },
           { onConflict: 'user_id' }
@@ -149,8 +186,8 @@ export class AdminAccountService {
   static async revokeAdmin(actorUserId: string, targetEmail: string): Promise<void> {
     const normalized = targetEmail.trim().toLowerCase();
 
-    if (normalized === PRIMARY_ADMIN_EMAIL) {
-      throw ApiError.badRequest('Security Policy: The primary advocate account (advshiv43@gmail.com) cannot be deleted or revoked.');
+    if (normalized === PRIMARY_ADMIN_EMAIL || normalized === FIRM_ADMIN_EMAIL) {
+      throw ApiError.badRequest('Security Policy: Primary firm and advocate administrator accounts cannot be deleted or revoked.');
     }
 
     // 1. Find user in auth
