@@ -3,11 +3,14 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { publicApi } from '@/lib/api';
 import { ArticleCard } from '@/components/public/ArticleCard';
+import { FIRM_ARTICLES } from '@/lib/articlesData';
+import { Article } from '@/types';
+import { Scale, BookOpen } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Legal Resources & Explainers | Advocate Shivansh Kumar Pandey',
+  title: 'Legal Resources & Explainers | Justice Alliance Associates & Law Firm',
   description:
-    'Educational articles, statutory explainers, and legal updates authored for public legal literacy on Civil, Family, and Taxation laws.',
+    'Educational legal articles, procedural explainers, and statutory updates authored for public literacy across Criminal, Cyber, Family, Civil, and Taxation laws.',
 };
 
 interface Props {
@@ -16,36 +19,62 @@ interface Props {
 
 export default async function ResourcesPage({ searchParams }: Props) {
   const categoryFilter = searchParams.category;
-  const articles = await publicApi.getArticles(categoryFilter).catch(() => []);
+
+  // Fetch backend articles, fallback to curated FIRM_ARTICLES
+  let articles: Article[] = [];
+  try {
+    const backendArticles = await publicApi.getArticles(categoryFilter).catch(() => []);
+    if (backendArticles && backendArticles.length > 0) {
+      articles = backendArticles;
+    } else {
+      articles = FIRM_ARTICLES;
+      if (categoryFilter && categoryFilter !== 'All Categories') {
+        articles = articles.filter(
+          (a) => a.category.toLowerCase() === categoryFilter.toLowerCase()
+        );
+      }
+    }
+  } catch {
+    articles = FIRM_ARTICLES;
+    if (categoryFilter && categoryFilter !== 'All Categories') {
+      articles = articles.filter(
+        (a) => a.category.toLowerCase() === categoryFilter.toLowerCase()
+      );
+    }
+  }
 
   const categories = [
     'All Categories',
+    'Criminal Law',
+    'Cyber Law',
+    'Family Law',
     'Civil Litigation',
     'Taxation & GST',
-    'Family Law',
-    'Business Registration',
   ];
 
   return (
-    <div className="py-16 space-y-16">
+    <div className="py-16 sm:py-24 space-y-16">
       {/* Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-8">
-        <div className="border-b border-ivory-dark pb-10 space-y-4 max-w-3xl">
-          <span className="text-xs font-semibold uppercase tracking-widest text-gold">
-            Knowledge & Updates
-          </span>
-          <h1 className="font-serif text-4xl sm:text-5xl font-bold text-navy">
+        <div className="border-b border-bone-dark pb-10 space-y-4 max-w-3xl">
+          <div className="inline-flex items-center space-x-2 px-3 py-1 bg-oxblood/10 border border-brass/40 text-oxblood text-xs font-mono uppercase tracking-editorial rounded-xs">
+            <BookOpen size={12} className="text-brass" />
+            <span>Legal Literacy & Insights</span>
+          </div>
+
+          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-oxblood">
             Legal Resources & Explainers
           </h1>
-          <p className="text-xs sm:text-sm text-charcoal/75 leading-relaxed">
-            Educational articles and practical legal explainers provided to promote public awareness regarding statutory rights, judicial procedures, and compliance best practices.
+
+          <p className="text-xs sm:text-sm text-charcoal/80 leading-relaxed font-normal">
+            Statutory commentaries, procedural checklists, and practical legal explainers published by <strong>Justice Alliance Associates & Law Firm</strong> to promote informed understanding of statutory rights and judicial processes.
           </p>
         </div>
       </section>
 
       {/* Categories Filter Tabs */}
       <section className="max-w-7xl mx-auto px-4 sm:px-8">
-        <div className="flex flex-wrap gap-2 border-b border-ivory-dark pb-4">
+        <div className="flex flex-wrap gap-2.5 border-b border-bone-dark pb-6">
           {categories.map((cat) => {
             const isAll = cat === 'All Categories';
             const isActive = isAll ? !categoryFilter : categoryFilter === cat;
@@ -55,10 +84,10 @@ export default async function ResourcesPage({ searchParams }: Props) {
               <Link
                 key={cat}
                 href={href}
-                className={`px-4 py-2 text-xs uppercase tracking-wider font-semibold transition-all border ${
+                className={`px-4 py-2 text-xs uppercase tracking-wider font-bold transition-all border rounded-xs ${
                   isActive
-                    ? 'bg-navy text-white border-navy'
-                    : 'bg-white text-charcoal/70 border-ivory-dark hover:border-gold hover:text-navy'
+                    ? 'bg-oxblood text-brass border-brass shadow-sm'
+                    : 'bg-white text-charcoal/70 border-bone-dark hover:border-brass hover:text-oxblood'
                 }`}
               >
                 {cat}
@@ -77,8 +106,8 @@ export default async function ResourcesPage({ searchParams }: Props) {
             ))}
           </div>
         ) : (
-          <div className="bg-white border border-ivory-dark p-12 text-center space-y-3">
-            <h3 className="font-serif text-xl font-bold text-navy">
+          <div className="bg-white border border-bone-dark p-12 text-center space-y-3 rounded-xs">
+            <h3 className="font-serif text-xl font-bold text-oxblood">
               No Articles Found
             </h3>
             <p className="text-xs text-charcoal/60">
@@ -87,7 +116,7 @@ export default async function ResourcesPage({ searchParams }: Props) {
             <div className="pt-2">
               <Link
                 href="/resources"
-                className="text-xs font-semibold uppercase tracking-wider text-gold hover:underline"
+                className="text-xs font-bold uppercase tracking-wider text-brass hover:underline"
               >
                 View All Categories
               </Link>

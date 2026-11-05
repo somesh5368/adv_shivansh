@@ -2,52 +2,66 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { publicApi } from '@/lib/api';
-import { ArrowLeft, CheckCircle2, Phone, Mail, Calendar } from 'lucide-react';
+import { getPracticeAreaBySlug, FIRM_PRACTICE_AREAS } from '@/lib/practiceAreasData';
+import { FIRM_ADVOCATES } from '@/lib/advocatesData';
+import { ArrowLeft, CheckCircle2, Phone, Mail, Calendar, ShieldCheck, Scale } from 'lucide-react';
 
 interface Props {
   params: { slug: string };
 }
 
+export async function generateStaticParams() {
+  return FIRM_PRACTICE_AREAS.map((area) => ({
+    slug: area.slug,
+  }));
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const area = await publicApi.getPracticeAreaBySlug(params.slug).catch(() => null);
-  if (!area) return { title: 'Practice Area Not Found' };
+  const area = getPracticeAreaBySlug(params.slug);
+  if (!area) return { title: 'Practice Area Not Found | Justice Alliance Associates' };
 
   return {
-    title: `${area.title} | Advocate Shivansh Kumar Pandey`,
+    title: `${area.title} | Justice Alliance Associates & Law Firm`,
     description: area.short_description,
   };
 }
 
-export default async function PracticeAreaDetailPage({ params }: Props) {
-  const [area, allAreas] = await Promise.all([
-    publicApi.getPracticeAreaBySlug(params.slug).catch(() => null),
-    publicApi.getPracticeAreas().catch(() => []),
-  ]);
+export default function PracticeAreaDetailPage({ params }: Props) {
+  const area = getPracticeAreaBySlug(params.slug);
 
   if (!area) {
     notFound();
   }
 
-  const otherAreas = allAreas.filter((a) => a.slug !== area.slug);
+  const otherAreas = FIRM_PRACTICE_AREAS.filter((a) => a.slug !== area.slug);
+
+  // Determine relevant advocate for this discipline
+  const assignedAdvocate =
+    area.slug === 'criminal-law'
+      ? FIRM_ADVOCATES[1] // Adv. Rahul Maurya
+      : area.slug === 'cyber-law'
+      ? FIRM_ADVOCATES[1] // Adv. Rahul Maurya
+      : area.slug === 'family-law'
+      ? FIRM_ADVOCATES[2] // Adv. Ratnakar Yadav
+      : FIRM_ADVOCATES[0]; // Adv. Shivansh (Civil & Taxation)
 
   return (
-    <div className="py-16 space-y-16">
+    <div className="py-16 sm:py-20 space-y-16">
       {/* Breadcrumb & Navigation */}
       <section className="max-w-7xl mx-auto px-4 sm:px-8">
         <Link
           href="/practice-areas"
-          className="inline-flex items-center text-xs font-semibold uppercase tracking-wider text-charcoal/70 hover:text-navy transition-colors mb-6"
+          className="inline-flex items-center text-xs font-bold uppercase tracking-wider text-charcoal/70 hover:text-oxblood transition-colors mb-6"
         >
-          <ArrowLeft size={14} className="mr-1.5" />
+          <ArrowLeft size={14} className="mr-1.5 text-brass" />
           <span>Back to All Practice Areas</span>
         </Link>
 
-        <div className="border-b border-ivory-dark pb-8 space-y-4 max-w-4xl">
-          <span className="text-xs font-semibold uppercase tracking-widest text-gold">
+        <div className="border-b border-bone-dark pb-8 space-y-4 max-w-4xl">
+          <span className="text-xs font-mono font-bold uppercase tracking-editorial text-brass block">
             Practice Area
           </span>
-          <h1 className="font-serif text-4xl sm:text-5xl font-bold text-navy">
+          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-oxblood">
             {area.title}
           </h1>
           <p className="text-sm sm:text-base text-charcoal/80 leading-relaxed font-normal">
@@ -61,15 +75,21 @@ export default async function PracticeAreaDetailPage({ params }: Props) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Main Description & Services */}
           <div className="lg:col-span-8 space-y-12">
-            <div className="bg-white border border-ivory-dark p-8 shadow-subtle space-y-4">
-              <h2 className="font-serif text-2xl font-bold text-navy border-b border-ivory-dark pb-3">
+            <div className="bg-white border border-bone-dark p-7 sm:p-9 shadow-subtle rounded-xs space-y-5">
+              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-oxblood border-b border-bone-dark pb-3">
                 Legal Scope & Procedural Approach
               </h2>
               <div className="text-xs sm:text-sm text-charcoal/85 leading-relaxed space-y-4">
                 <p>{area.full_description}</p>
                 <p>
-                  Every legal proceeding in this domain is evaluated in accordance with substantive statutory laws and procedural mandates. Our chambers prioritize early factual investigation, thorough documentary verification, and well-reasoned advocacy.
+                  Every proceeding in this discipline is governed by comprehensive factual inquiry, documentary substantiation, and thorough statutory analysis. Our chambers represent clients through early intervention, meticulous drafting of plaints or petitions, and steadfast trial advocacy.
                 </p>
+              </div>
+
+              {/* Lead Practice Partner note */}
+              <div className="pt-4 border-t border-bone-dark flex items-center justify-between text-xs">
+                <span className="text-charcoal/60 font-mono">Lead Discipline Partner:</span>
+                <span className="font-bold text-oxblood">{assignedAdvocate.name} ({assignedAdvocate.specialization})</span>
               </div>
             </div>
 
@@ -77,11 +97,11 @@ export default async function PracticeAreaDetailPage({ params }: Props) {
             {area.services && area.services.length > 0 && (
               <div className="space-y-6">
                 <div>
-                  <span className="text-xs font-semibold uppercase tracking-widest text-gold block mb-1">
+                  <span className="text-xs font-mono font-bold uppercase tracking-editorial text-brass block mb-1">
                     Specific Legal Services
                   </span>
-                  <h3 className="font-serif text-2xl sm:text-3xl font-bold text-navy">
-                    Matters Handled Under {area.title}
+                  <h3 className="font-serif text-2xl sm:text-3xl font-bold text-oxblood">
+                    Proceedings Handled Under {area.title}
                   </h3>
                 </div>
 
@@ -89,12 +109,12 @@ export default async function PracticeAreaDetailPage({ params }: Props) {
                   {area.services.map((service) => (
                     <div
                       key={service.id}
-                      className="bg-white border border-ivory-dark p-6 shadow-subtle hover:border-gold/60 transition-colors"
+                      className="bg-white border border-bone-dark p-6 shadow-subtle hover:border-brass/70 transition-all rounded-xs"
                     >
                       <div className="flex items-start space-x-3">
-                        <CheckCircle2 size={18} className="text-gold shrink-0 mt-0.5" />
+                        <CheckCircle2 size={18} className="text-brass shrink-0 mt-0.5" />
                         <div>
-                          <h4 className="font-serif text-base font-bold text-navy mb-1.5">
+                          <h4 className="font-serif text-base sm:text-lg font-bold text-oxblood mb-1.5">
                             {service.title}
                           </h4>
                           <p className="text-xs text-charcoal/70 leading-relaxed">
@@ -112,31 +132,41 @@ export default async function PracticeAreaDetailPage({ params }: Props) {
           {/* Sidebar */}
           <div className="lg:col-span-4 space-y-8">
             {/* Consultation Card */}
-            <div className="bg-navy text-white p-7 border-l-4 border-gold space-y-4">
-              <h4 className="font-serif text-xl font-bold text-white">
-                Chamber Consultation
+            <div className="bg-oxblood text-bone p-7 border-l-4 border-brass space-y-5 rounded-xs shadow-card">
+              <div className="flex items-center space-x-2 text-brass">
+                <Scale size={18} />
+                <span className="text-[11px] font-mono uppercase tracking-widest font-bold">
+                  Chamber Consultation
+                </span>
+              </div>
+              <h4 className="font-serif text-xl sm:text-2xl font-bold text-white">
+                Consult with Our Advocates
               </h4>
-              <p className="text-xs text-ivory/80 leading-relaxed">
-                To schedule an appointment or seek guidance regarding matters related to {area.title}, contact our chambers.
+              <p className="text-xs text-bone/80 leading-relaxed">
+                To schedule an appointment or seek counsel regarding {area.title}, contact our legal chambers.
               </p>
-              <div className="space-y-2 text-xs text-ivory/80 pt-2 border-t border-navy-800">
+
+              <div className="space-y-2.5 text-xs text-bone/85 pt-2 border-t border-brass/20 font-mono">
+                {assignedAdvocate.phone && (
+                  <div className="flex items-center space-x-2">
+                    <Phone size={14} className="text-brass" />
+                    <a href={`tel:${assignedAdvocate.phone.replace(/\s+/g, '')}`} className="hover:text-brass transition-colors font-bold">
+                      {assignedAdvocate.phone}
+                    </a>
+                  </div>
+                )}
                 <div className="flex items-center space-x-2">
-                  <Phone size={14} className="text-gold" />
-                  <a href="tel:+919198106052" className="hover:text-gold transition-colors">
-                    +91 9198106052
-                  </a>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Mail size={14} className="text-gold" />
-                  <a href="mailto:advshiv43@gmail.com" className="hover:text-gold transition-colors">
-                    advshiv43@gmail.com
+                  <Mail size={14} className="text-brass" />
+                  <a href="mailto:justicealliencelaw@gmail.com" className="hover:text-brass transition-colors truncate">
+                    justicealliencelaw@gmail.com
                   </a>
                 </div>
               </div>
+
               <div className="pt-2">
                 <Link
-                  href="/contact"
-                  className="block text-center py-2.5 text-xs font-semibold uppercase tracking-wider bg-gold text-navy-900 hover:bg-gold-light transition-all"
+                  href={`/contact?area=${encodeURIComponent(area.title)}`}
+                  className="block text-center py-2.5 text-xs font-bold uppercase tracking-wider bg-brass text-charcoal hover:bg-brass-light transition-all rounded-xs"
                 >
                   Schedule Appointment
                 </Link>
@@ -144,8 +174,8 @@ export default async function PracticeAreaDetailPage({ params }: Props) {
             </div>
 
             {/* Other Practice Areas Directory */}
-            <div className="bg-white border border-ivory-dark p-6 space-y-4 shadow-subtle">
-              <h4 className="font-serif text-lg font-bold text-navy border-b border-ivory-dark pb-2">
+            <div className="bg-white border border-bone-dark p-6 space-y-4 shadow-subtle rounded-xs">
+              <h4 className="font-serif text-lg font-bold text-oxblood border-b border-bone-dark pb-2">
                 Other Practice Disciplines
               </h4>
               <ul className="space-y-2 text-xs">
@@ -153,9 +183,9 @@ export default async function PracticeAreaDetailPage({ params }: Props) {
                   <li key={item.id}>
                     <Link
                       href={`/practice-areas/${item.slug}`}
-                      className="text-charcoal/80 hover:text-navy hover:underline block py-1"
+                      className="text-charcoal/80 hover:text-oxblood hover:underline block py-1 font-medium"
                     >
-                      {item.title}
+                      &bull; {item.title}
                     </Link>
                   </li>
                 ))}

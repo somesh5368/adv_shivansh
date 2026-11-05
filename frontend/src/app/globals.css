@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,19 +6,20 @@
 
 :root {
   --font-cormorant: 'Cormorant Garamond', Georgia, serif;
-  --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --color-navy: #111C2B;
-  --color-ivory: #F5F1E8;
-  --color-gold: #C5A35A;
-  --color-charcoal: #202B38;
+  --font-worksans: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --color-oxblood: #4a0e1a;
+  --color-wine: #6b1426;
+  --color-charcoal: #1a1214;
+  --color-bone: #efe9df;
+  --color-brass: #c9a24b;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
     color: var(--color-charcoal);
-    background-color: var(--color-ivory);
-    font-family: var(--font-inter);
+    background-color: var(--color-bone);
+    font-family: var(--font-worksans);
   }
 
   body {
@@ -27,41 +28,67 @@
     flex-direction: column;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+    background-color: #efe9df;
+    color: #1a1214;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-cormorant);
     font-weight: 600;
-    color: var(--color-navy);
+    color: #1a1214;
   }
 
   ::selection {
-    background-color: #C5A35A;
-    color: #FFFFFF;
+    background-color: #c9a24b;
+    color: #1a1214;
+  }
+
+  /* Visible keyboard focus outline */
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+    outline: 2px solid #c9a24b;
+    outline-offset: 2px;
   }
 }
 
-/* Subtle gold border accent */
-.gold-accent-border {
-  border-left: 3px solid #C5A35A;
+/* Vertical Pillar Lines Background (Classical Legal Architecture) */
+.pillar-lines-bg {
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(201, 162, 75, 0.05) 0px,
+    rgba(201, 162, 75, 0.05) 1px,
+    transparent 1px,
+    transparent 72px
+  );
 }
 
-/* Custom scrollbar for legal content & admin panels */
+.brass-accent-border {
+  border-left: 3px solid #c9a24b;
+}
+
+/* Custom brass scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #F5F1E8;
+  background: #efe9df;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #C5A35A;
-  border-radius: 3px;
+  background: #c9a24b;
+  border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #A98740;
+  background: #a88334;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

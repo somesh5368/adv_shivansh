@@ -1,7 +1,8 @@
 import React from 'react';
 import { Header } from '@/components/public/Header';
 import { Footer } from '@/components/public/Footer';
-import { MobileCallBar } from '@/components/public/MobileCallBar';
+import { EntryFlowModal } from '@/components/public/EntryFlowModal';
+import { FloatingWhatsApp } from '@/components/public/FloatingWhatsApp';
 
 export default function PublicLayout({
   children,
@@ -9,11 +10,12 @@ export default function PublicLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen flex flex-col bg-ivory">
+    <div className="min-h-screen flex flex-col bg-bone text-charcoal relative">
+      <EntryFlowModal />
       <Header />
-      <main className="flex-grow pb-16 md:pb-0">{children}</main>
+      <main className="flex-grow">{children}</main>
       <Footer />
-      <MobileCallBar />
+      <FloatingWhatsApp />
     </div>
   );
 }

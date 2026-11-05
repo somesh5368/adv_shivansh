@@ -9,31 +9,54 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        navy: {
-          900: '#0B121C',
-          DEFAULT: '#111C2B', // Primary midnight navy
-          800: '#172538',
-          700: '#202B38', // Charcoal
+        oxblood: {
+          DEFAULT: '#4a0e1a',
+          dark: '#350912',
+          light: '#5d1222',
         },
-        ivory: {
-          DEFAULT: '#F5F1E8', // Warm ivory
-          light: '#FAF8F3',
-          dark: '#EAE4D5',
-        },
-        gold: {
-          DEFAULT: '#C5A35A', // Muted gold
-          light: '#D4B979',
-          dark: '#A98740',
+        wine: {
+          DEFAULT: '#6b1426',
+          dark: '#520e1c',
+          light: '#831930',
         },
         charcoal: {
-          DEFAULT: '#202B38',
-          light: '#354355',
-          dark: '#141C25',
+          DEFAULT: '#1a1214',
+          dark: '#0e090a',
+          light: '#281c20',
+          muted: '#3d2f33',
+        },
+        bone: {
+          DEFAULT: '#efe9df',
+          dark: '#dfd7c9',
+          light: '#fbf9f5',
+          muted: '#cbc2b2',
+        },
+        brass: {
+          DEFAULT: '#c9a24b',
+          dark: '#a88334',
+          light: '#dec073',
+        },
+        // Backwards compatibility mappings for admin components
+        gold: {
+          DEFAULT: '#c9a24b',
+          dark: '#a88334',
+          light: '#dec073',
+        },
+        navy: {
+          DEFAULT: '#4a0e1a',
+          900: '#1a1214',
+          800: '#281c20',
+          700: '#350912',
+        },
+        ivory: {
+          DEFAULT: '#efe9df',
+          light: '#fbf9f5',
+          dark: '#dfd7c9',
         },
       },
       fontFamily: {
         serif: ['var(--font-cormorant)', 'Cormorant Garamond', 'Georgia', 'serif'],
-        sans: ['var(--font-inter)', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        sans: ['var(--font-worksans)', 'Work Sans', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
       },
       letterSpacing: {
         tightest: '-.075em',
@@ -43,13 +66,23 @@ const config: Config = {
         wide: '.025em',
         wider: '.05em',
         widest: '.15em',
-        editorial: '.2em',
+        editorial: '.22em',
       },
       boxShadow: {
-        'subtle': '0 2px 10px rgba(17, 28, 43, 0.04)',
-        'card': '0 4px 20px -2px rgba(17, 28, 43, 0.06)',
-        'card-hover': '0 12px 30px -4px rgba(17, 28, 43, 0.12)',
-        'modal': '0 20px 50px -10px rgba(17, 28, 43, 0.25)',
+        subtle: '0 2px 10px rgba(26, 18, 20, 0.05)',
+        card: '0 4px 24px -2px rgba(26, 18, 20, 0.08)',
+        'card-hover': '0 16px 36px -4px rgba(74, 14, 26, 0.16)',
+        modal: '0 25px 60px -12px rgba(14, 9, 10, 0.45)',
+        brass: '0 0 25px rgba(201, 162, 75, 0.25)',
+      },
+      keyframes: {
+        fadeIn: {
+          from: { opacity: '0', transform: 'translateY(8px)' },
+          to: { opacity: '1', transform: 'translateY(0)' },
+        },
+      },
+      animation: {
+        'fade-in': 'fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
       },
     },
   },
@@ -57,4 +90,3 @@ const config: Config = {
 };
 
 export default config;
-
