@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ScalesEmblem } from './ScalesEmblem';
+import { ThemeToggle } from './ThemeToggle';
 import { Menu, X, Phone, Mail, ArrowRight, Calendar } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -111,8 +112,9 @@ export function Header() {
             })}
           </nav>
 
-          {/* Right Action: Gold CTA Button */}
-          <div className="hidden lg:flex items-center space-x-4">
+          {/* Right Action: Theme Toggle + Gold CTA Button */}
+          <div className="hidden lg:flex items-center space-x-3.5">
+            <ThemeToggle showLabel />
             <Link
               href="/contact"
               className="inline-flex items-center justify-center space-x-2 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-charcoal-dark bg-brass hover:bg-brass-light border border-brass transition-all rounded-xs shadow-brass"
@@ -124,6 +126,7 @@ export function Header() {
 
           {/* Mobile Right Bar */}
           <div className="flex items-center space-x-2 lg:hidden">
+            <ThemeToggle />
             <Link
               href="/contact"
               className="px-3 py-1.5 bg-brass text-charcoal-dark text-[11px] font-bold uppercase tracking-wider rounded-xs"
@@ -168,13 +171,16 @@ export function Header() {
                   </div>
                 </div>
 
-                <button
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="w-8 h-8 rounded-full border border-charcoal-light text-bone/70 hover:text-brass hover:border-brass flex items-center justify-center transition-colors"
-                  aria-label="Close navigation"
-                >
-                  <X size={18} />
-                </button>
+                <div className="flex items-center space-x-2">
+                  <ThemeToggle showLabel />
+                  <button
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="w-8 h-8 rounded-full border border-charcoal-light text-bone/70 hover:text-brass hover:border-brass flex items-center justify-center transition-colors"
+                    aria-label="Close navigation"
+                  >
+                    <X size={18} />
+                  </button>
+                </div>
               </div>
 
               {/* Navigation Items */}

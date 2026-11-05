@@ -98,8 +98,8 @@ export function InteractiveHowWeWork() {
               onClick={() => setActiveStep(idx)}
               className={`text-left p-6 sm:p-7 rounded-xs border transition-all duration-300 relative flex flex-col justify-between ${
                 isSelected
-                  ? 'bg-white border-2 border-brass shadow-card-hover -translate-y-2'
-                  : 'bg-white/70 border-bone-dark hover:border-brass/70 hover:bg-white shadow-subtle'
+                  ? 'bg-white dark:bg-[#151e2c] border-2 border-brass shadow-card-hover -translate-y-2'
+                  : 'bg-white/80 dark:bg-[#101622] border-bone-dark dark:border-[#222c3d] hover:border-brass/70 hover:bg-white dark:hover:bg-[#151e2c] shadow-subtle'
               }`}
             >
               {/* Top Accent bar */}
@@ -113,7 +113,7 @@ export function InteractiveHowWeWork() {
                 <div className="flex items-center justify-between mb-4">
                   <span
                     className={`font-serif text-2xl sm:text-3xl font-extrabold tracking-tight transition-colors ${
-                      isSelected ? 'text-brass' : 'text-charcoal/40'
+                      isSelected ? 'text-brass' : 'text-charcoal/40 dark:text-bone/40'
                     }`}
                   >
                     {item.step}
@@ -122,7 +122,7 @@ export function InteractiveHowWeWork() {
                     className={`text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-xs border ${
                       isSelected
                         ? 'bg-oxblood text-brass border-brass/40'
-                        : 'bg-bone text-charcoal/60 border-bone-dark'
+                        : 'bg-bone dark:bg-[#0c1018] text-charcoal/60 dark:text-bone/70 border-bone-dark dark:border-[#222c3d]'
                     }`}
                   >
                     {item.phase}
@@ -133,22 +133,22 @@ export function InteractiveHowWeWork() {
 
                 <h3
                   className={`font-serif text-lg sm:text-xl font-bold mb-2 transition-colors ${
-                    isSelected ? 'text-oxblood' : 'text-charcoal'
+                    isSelected ? 'text-oxblood dark:text-brass' : 'text-charcoal dark:text-bone'
                   }`}
                 >
                   {item.title}
                 </h3>
 
-                <p className="text-xs text-charcoal/70 leading-relaxed line-clamp-3">
+                <p className="text-xs text-charcoal/70 dark:text-bone/70 leading-relaxed line-clamp-3">
                   {item.description}
                 </p>
               </div>
 
-              <div className="pt-4 mt-4 border-t border-bone-dark flex items-center justify-between">
-                <span className="text-[11px] font-bold text-oxblood">{item.tag}</span>
+              <div className="pt-4 mt-4 border-t border-bone-dark dark:border-[#222c3d] flex items-center justify-between">
+                <span className="text-[11px] font-bold text-oxblood dark:text-brass">{item.tag}</span>
                 <span
                   className={`text-xs font-bold transition-transform ${
-                    isSelected ? 'text-brass translate-x-1' : 'text-charcoal/40'
+                    isSelected ? 'text-brass translate-x-1' : 'text-charcoal/40 dark:text-bone/40'
                   }`}
                 >
                   &rarr;
@@ -160,10 +160,10 @@ export function InteractiveHowWeWork() {
       </div>
 
       {/* Expanded Active Step Detail Showcase Box */}
-      <div className="bg-white border-2 border-brass/50 p-7 sm:p-10 rounded-xs shadow-card animate-fade-in relative overflow-hidden">
+      <div className="bg-white dark:bg-[#121824] border-2 border-brass/50 p-7 sm:p-10 rounded-xs shadow-card animate-fade-in relative overflow-hidden">
         {/* Subtle background crest */}
         <div className="absolute right-0 bottom-0 opacity-5 pointer-events-none transform translate-x-10 translate-y-10">
-          <Scale size={280} className="text-oxblood" />
+          <Scale size={280} className="text-oxblood dark:text-brass" />
         </div>
 
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -176,23 +176,23 @@ export function InteractiveHowWeWork() {
                 <span className="text-xs uppercase font-bold tracking-widest text-brass block">
                   Phase {steps[activeStep].step} &bull; {steps[activeStep].phase}
                 </span>
-                <h4 className="font-serif text-2xl sm:text-3xl font-bold text-oxblood">
+                <h4 className="font-serif text-2xl sm:text-3xl font-bold text-oxblood dark:text-white">
                   {steps[activeStep].title}
                 </h4>
               </div>
             </div>
 
-            <p className="text-xs sm:text-sm text-charcoal/85 leading-relaxed pt-1">
+            <p className="text-xs sm:text-sm text-charcoal/85 dark:text-bone/85 leading-relaxed pt-1">
               {steps[activeStep].description}
             </p>
 
             {/* Checklist of what our advocates do in this step */}
             <div className="pt-3 space-y-2.5">
-              <span className="text-xs font-bold uppercase tracking-wider text-charcoal/60 block">
+              <span className="text-xs font-bold uppercase tracking-wider text-charcoal/60 dark:text-bone/60 block">
                 Procedural Deliverables:
               </span>
               {steps[activeStep].detailPoints.map((point) => (
-                <div key={point} className="flex items-start space-x-2.5 text-xs text-charcoal/80">
+                <div key={point} className="flex items-start space-x-2.5 text-xs text-charcoal/80 dark:text-bone/80">
                   <CheckCircle2 size={15} className="text-brass shrink-0 mt-0.5" />
                   <span className="leading-relaxed font-medium">{point}</span>
                 </div>
@@ -200,13 +200,13 @@ export function InteractiveHowWeWork() {
             </div>
           </div>
 
-          <div className="lg:col-span-4 lg:text-right border-t lg:border-t-0 lg:border-l border-bone-dark pt-6 lg:pt-0 lg:pl-8 space-y-4">
-            <div className="text-left bg-bone-light p-4 rounded-xs border border-bone-dark space-y-1.5">
-              <div className="flex items-center space-x-2 text-oxblood font-bold text-xs">
+          <div className="lg:col-span-4 lg:text-right border-t lg:border-t-0 lg:border-l border-bone-dark dark:border-[#222c3d] pt-6 lg:pt-0 lg:pl-8 space-y-4">
+            <div className="text-left bg-bone-light dark:bg-[#0c1018] p-4 rounded-xs border border-bone-dark dark:border-[#222c3d] space-y-1.5">
+              <div className="flex items-center space-x-2 text-oxblood dark:text-brass font-bold text-xs">
                 <ShieldCheck size={16} className="text-brass" />
                 <span>Standard of Representation</span>
               </div>
-              <p className="text-[11px] text-charcoal/70 leading-relaxed">
+              <p className="text-[11px] text-charcoal/70 dark:text-bone/70 leading-relaxed">
                 Supervised directly by partner advocates enrolled with the Bar Council of Uttar Pradesh.
               </p>
             </div>
@@ -224,3 +224,4 @@ export function InteractiveHowWeWork() {
     </div>
   );
 }
+

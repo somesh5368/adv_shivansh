@@ -24,6 +24,11 @@
     font-family: var(--font-sans);
   }
 
+  html.dark {
+    color: #f3efe6;
+    background-color: #0b0f17;
+  }
+
   body {
     min-height: 100vh;
     display: flex;
@@ -32,12 +37,22 @@
     -webkit-font-smoothing: antialiased;
     background-color: #fbf9f5;
     color: #111827;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  html.dark body {
+    background-color: #0b0f17;
+    color: #f3efe6;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-cinzel);
     color: #111827;
     letter-spacing: -0.01em;
+  }
+
+  html.dark h1, html.dark h2, html.dark h3, html.dark h4, html.dark h5, html.dark h6 {
+    color: #f3efe6;
   }
 
   ::selection {

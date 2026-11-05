@@ -47,7 +47,7 @@ export function InteractivePracticeGrid({ practiceAreas }: InteractivePracticeGr
               className={`px-4 sm:px-5 py-2.5 text-xs font-semibold tracking-wider uppercase transition-all rounded-xs border ${
                 isActive
                   ? 'bg-oxblood text-brass border-brass shadow-md scale-105'
-                  : 'bg-white text-charcoal/70 border-bone-dark hover:border-brass/70 hover:text-oxblood'
+                  : 'bg-white dark:bg-[#121824] text-charcoal/70 dark:text-bone/70 border-bone-dark dark:border-[#222c3d] hover:border-brass/70 hover:text-oxblood dark:hover:text-brass'
               }`}
             >
               {tab.label}
@@ -64,7 +64,7 @@ export function InteractivePracticeGrid({ practiceAreas }: InteractivePracticeGr
           return (
             <div
               key={area.id}
-              className="group relative bg-white border border-bone-dark hover:border-brass transition-all duration-300 hover:-translate-y-2 hover:shadow-card-hover rounded-xs overflow-hidden flex flex-col justify-between"
+              className="group relative bg-white dark:bg-[#121824] border border-bone-dark dark:border-[#222c3d] hover:border-brass dark:hover:border-brass/80 transition-all duration-300 hover:-translate-y-2 hover:shadow-card-hover rounded-xs overflow-hidden flex flex-col justify-between"
             >
               {/* Image Banner */}
               {area.image_path && (
@@ -88,19 +88,19 @@ export function InteractivePracticeGrid({ practiceAreas }: InteractivePracticeGr
               {/* Card Body */}
               <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-oxblood group-hover:text-wine transition-colors mb-3 leading-snug">
+                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-oxblood dark:text-white group-hover:text-wine dark:group-hover:text-brass transition-colors mb-3 leading-snug">
                     <Link href={`/practice-areas/${area.slug}`}>{area.title}</Link>
                   </h3>
 
-                  <p className="text-xs sm:text-[13px] text-charcoal/75 leading-relaxed mb-5 line-clamp-3">
+                  <p className="text-xs sm:text-[13px] text-charcoal/75 dark:text-bone/75 leading-relaxed mb-5 line-clamp-3">
                     {area.short_description}
                   </p>
 
                   {/* Key Services Preview */}
                   {area.services && area.services.length > 0 && (
-                    <div className="space-y-1.5 pt-3 border-t border-bone-dark mb-6">
+                    <div className="space-y-1.5 pt-3 border-t border-bone-dark dark:border-[#222c3d] mb-6">
                       {area.services.slice(0, 3).map((srv) => (
-                        <div key={srv.id} className="text-[11px] text-charcoal/80 flex items-center space-x-2">
+                        <div key={srv.id} className="text-[11px] text-charcoal/80 dark:text-bone/80 flex items-center space-x-2">
                           <CheckCircle2 size={12} className="text-brass shrink-0" />
                           <span className="truncate">{srv.title}</span>
                         </div>
@@ -110,7 +110,7 @@ export function InteractivePracticeGrid({ practiceAreas }: InteractivePracticeGr
                 </div>
 
                 {/* Footer Action */}
-                <div className="pt-4 border-t border-bone-dark flex items-center justify-between">
+                <div className="pt-4 border-t border-bone-dark dark:border-[#222c3d] flex items-center justify-between">
                   <Link
                     href={`/practice-areas/${area.slug}`}
                     className="inline-flex items-center text-xs font-bold uppercase tracking-wider text-oxblood group-hover:text-wine transition-colors"
@@ -137,3 +137,4 @@ export function InteractivePracticeGrid({ practiceAreas }: InteractivePracticeGr
     </div>
   );
 }
+

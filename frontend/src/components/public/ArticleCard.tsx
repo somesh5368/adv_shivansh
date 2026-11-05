@@ -10,37 +10,37 @@ interface ArticleCardProps {
 
 export function ArticleCard({ article }: ArticleCardProps) {
   return (
-    <article className="group bg-white border border-bone-dark hover:border-brass/80 p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-card-hover rounded-xs">
+    <article className="group bg-white dark:bg-[#121824] border border-bone-dark dark:border-[#222c3d] hover:border-brass/80 dark:hover:border-brass p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-card-hover rounded-xs">
       <div>
         {/* Category & Date */}
-        <div className="flex items-center space-x-3 text-[11px] text-charcoal/60 mb-3.5">
+        <div className="flex items-center space-x-3 text-[11px] text-charcoal/60 dark:text-bone/60 mb-3.5">
           <span className="inline-flex items-center text-brass font-bold uppercase tracking-wider">
             <Tag size={11} className="mr-1 text-brass" />
             {article.category}
           </span>
           <span>&bull;</span>
-          <span className="inline-flex items-center text-charcoal/70">
-            <Calendar size={11} className="mr-1 text-charcoal/50" />
+          <span className="inline-flex items-center text-charcoal/70 dark:text-bone/70">
+            <Calendar size={11} className="mr-1 text-charcoal/50 dark:text-bone/50" />
             {formatDate(article.published_at || article.created_at)}
           </span>
         </div>
 
         {/* Title */}
-        <h3 className="font-serif text-xl sm:text-2xl font-bold text-oxblood group-hover:text-wine transition-colors mb-3 line-clamp-2 leading-snug">
+        <h3 className="font-serif text-xl sm:text-2xl font-bold text-oxblood dark:text-white group-hover:text-wine dark:group-hover:text-brass transition-colors mb-3 line-clamp-2 leading-snug">
           <Link href={`/resources/${article.slug}`}>{article.title}</Link>
         </h3>
 
         {/* Excerpt */}
-        <p className="text-xs sm:text-[13px] text-charcoal/75 leading-relaxed mb-6 line-clamp-3">
+        <p className="text-xs sm:text-[13px] text-charcoal/75 dark:text-bone/75 leading-relaxed mb-6 line-clamp-3">
           {article.excerpt}
         </p>
       </div>
 
       {/* Action Link */}
-      <div className="pt-4 border-t border-bone-dark flex items-center justify-between">
+      <div className="pt-4 border-t border-bone-dark dark:border-[#222c3d] flex items-center justify-between">
         <Link
           href={`/resources/${article.slug}`}
-          className="inline-flex items-center text-xs font-bold uppercase tracking-wider text-charcoal group-hover:text-oxblood transition-colors"
+          className="inline-flex items-center text-xs font-bold uppercase tracking-wider text-charcoal dark:text-bone group-hover:text-oxblood dark:group-hover:text-brass transition-colors"
         >
           <span>Read Legal Explainer</span>
           <ArrowRight
