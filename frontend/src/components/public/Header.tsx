@@ -56,9 +56,18 @@ export function Header() {
                 About the Firm
               </Link>
               <span className="text-charcoal-muted">|</span>
-              <Link href="/disclaimer" className="hover:text-brass transition-colors">
-                Bar Council Rules
-              </Link>
+              <button
+                type="button"
+                onClick={() => {
+                  if (typeof window !== 'undefined') {
+                    window.dispatchEvent(new Event('open-entry-modal'));
+                  }
+                }}
+                className="hover:text-brass transition-colors uppercase cursor-pointer text-[11px] font-semibold"
+                title="Open BCI Compliance & Enquiry Flow"
+              >
+                BCI Notice &amp; Enquiry
+              </button>
               <span className="text-charcoal-muted">|</span>
               <Link href="/admin/login" className="hover:text-brass transition-colors text-brass/90">
                 Chamber Portal &rarr;

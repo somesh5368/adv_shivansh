@@ -10,7 +10,7 @@ export default function PublicLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen flex flex-col bg-bone text-charcoal relative">
+    <div className="min-h-screen flex flex-col bg-bone dark:bg-[#0b0f17] text-charcoal dark:text-[#f3efe6] relative transition-colors duration-200">
       <EntryFlowModal />
       <Header />
       <main className="flex-grow">{children}</main>
